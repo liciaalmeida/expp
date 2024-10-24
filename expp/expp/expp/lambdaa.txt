@@ -1,0 +1,152 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// hello-world.js
+console.log("Hello, World!");
+
+
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import json
+
+def lambda_handler(event, context):
+    # Extract bucket name and object key from the event
+    bucket_name = event['Records'][0]['s3']['bucket']['name']
+    object_key = event['Records'][0]['s3']['object']['key']
+    
+    # Log the message
+    print(f"An object has been added to the bucket '{bucket_name}'. Object key: '{object_key}'")
+    
+    return {
+        'statusCode': 200,
+        'body': json.dumps('An object has been added')
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import json
+
+def lambda_handler(event, context):
+    # Log the message
+    print("I got output")
+    
+    return {
+        'statusCode': 200,
+        'body': json.dumps('I got output')
+    }
