@@ -39,3 +39,25 @@ def lambda_handler(event, context):
         'statusCode': 200,
         'body': json.dumps('I got output')
     }
+
+
+
+---
+import json
+import logging
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+def lambda_handler(event, context):
+    # Log when an object is added to the S3 bucket
+    logger.info("An object has been added")
+    
+    # Optional: log the event details (for debugging purposes)
+    logger.info(json.dumps(event))
+    
+    return {
+        'statusCode': 200,
+        'body': json.dumps('An object was added to the S3 bucket')
+    }
+
