@@ -1,19 +1,41 @@
-// server.js
-
 const express = require('express');
-const path = require('path');  // For serving static files
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
-// Serve static files (HTML, CSS, JS) from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
-
-// API route that sends data to the client
-app.get('/api/data', (req, res) => {
-    res.json({ message: "Hello from the server-side!" });
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
 });
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+
+
+
+import json
+
+def lambda_handler(event, context):
+    # Extract bucket name and object key from the event
+    bucket_name = event['Records'][0]['s3']['bucket']['name']
+    object_key = event['Records'][0]['s3']['object']['key']
+    
+    # Log the message
+    print(f"An object has been added to the bucket '{bucket_name}'. Object key: '{object_key}'")
+    
+    return {
+        'statusCode': 200,
+        'body': json.dumps('An object has been added')
+    }
+
+
+import json
+
+def lambda_handler(event, context):
+    # Log the message
+    print("I got output")
+    
+    return {
+        'statusCode': 200,
+        'body': json.dumps('I got output')
+    }
